@@ -1,0 +1,190 @@
+import java.util.Scanner;
+
+class TreeNode {
+    int data;
+    TreeNode left, right;
+
+    public TreeNode(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    private TreeNode root;
+
+    public BinaryTree() {
+        root = null;
+    }
+
+    // Method to perform in-order traversal
+    public void inOrderTraversal() {
+        inOrderTraversal(root);
+    }
+
+    private void inOrderTraversal(TreeNode node) {
+        if (node != null) {
+            // Traverse the left subtree
+            inOrderTraversal(node.left);
+
+            // Visit the current node
+            System.out.print(node.data + " ");
+
+            // Traverse the right subtree
+            inOrderTraversal(node.right);
+        }
+    }
+
+    // Method to build the binary tree based on user input
+    public void buildTree() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the root value of the tree: ");
+        int rootValue = scanner.nextInt();
+        root = new TreeNode(rootValue);
+
+        buildTree(root, scanner);
+    }
+
+    private void buildTree(TreeNode currentNode, Scanner scanner) {
+        int choice;
+        do {
+            System.out.println("\nCurrent Node: " + currentNode.data);
+            System.out.println("1. Add left child");
+            System.out.println("2. Add right child");
+            System.out.println("3. Move to the parent node");
+            System.out.println("4. In-order traversal");
+            System.out.print("Enter your choice (1-4): ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the left child value (or 0 if none): ");
+                    int leftValue = scanner.nextInt();
+                    if (leftValue != -1) {
+                        currentNode.left = new TreeNode(leftValue);
+                        buildTree(currentNode.left, scanner);
+                    }
+                    break;
+                case 2:
+                    System.out.print("Enter the right child value (or 0 if none): ");
+                    int rightValue = scanner.nextInt();
+                    if (rightValue != -1) {
+                        currentNode.right = new TreeNode(rightValue);
+                        buildTree(currentNode.right, scanner);
+                    }
+                    break;
+                case 3:
+                    // Move to the parent node
+                    break;
+                case 4:
+                    inOrderTraversal();
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        } while (choice != 3);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        tree.buildTree();
+
+        System.out.println("In-order traversal of binary tree:");
+        tree.inOrderTraversal();
+    }
+}
+import java.util.Scanner;
+
+class TreeNode {
+    int data;
+    TreeNode left, right;
+
+    public TreeNode(int item) {
+        data = item;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    private TreeNode root;
+
+    public BinaryTree() {
+        root = null;
+    }
+
+    // Method to perform in-order traversal
+    public void inOrderTraversal() {
+        inOrderTraversal(root);
+    }
+
+    private void inOrderTraversal(TreeNode node) {
+        if (node != null) {
+            // Traverse the left subtree
+            inOrderTraversal(node.left);
+
+            // Visit the current node
+            System.out.print(node.data + " ");
+
+            // Traverse the right subtree
+            inOrderTraversal(node.right);
+        }
+    }
+
+    // Method to build the binary tree based on user input
+    public void buildTree() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the root value of the tree: ");
+        int rootValue = scanner.nextInt();
+        root = new TreeNode(rootValue);
+
+        buildTree(root, scanner);
+    }
+
+    private void buildTree(TreeNode currentNode, Scanner scanner) {
+        int choice;
+        do {
+            System.out.println("\nCurrent Node: " + currentNode.data);
+            System.out.println("1. Add left child");
+            System.out.println("2. Add right child");
+            System.out.println("3. Move to the parent node");
+            System.out.println("4. In-order traversal");
+            System.out.print("Enter your choice (1-4): ");
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the left child value (or 0 if none): ");
+                    int leftValue = scanner.nextInt();
+                    if (leftValue != -1) {
+                        currentNode.left = new TreeNode(leftValue);
+                        buildTree(currentNode.left, scanner);
+                    }
+                    break;
+                case 2:
+                    System.out.print("Enter the right child value (or 0 if none): ");
+                    int rightValue = scanner.nextInt();
+                    if (rightValue != -1) {
+                        currentNode.right = new TreeNode(rightValue);
+                        buildTree(currentNode.right, scanner);
+                    }
+                    break;
+                case 3:
+                    // Move to the parent node
+                    break;
+                case 4:
+                    inOrderTraversal();
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            }
+        } while (choice != 3);
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        tree.buildTree();
+
+        System.out.println("In-order traversal of binary tree:");
+        tree.inOrderTraversal();
+    }
+}
